@@ -1,5 +1,9 @@
 import express from "express";
 import nodemailer from "nodemailer";
+import dotenv from "dotenv"
+
+
+dotenv.config({ path: path.resolve("./.env") });
 
 const router = express.Router();
 
