@@ -8,7 +8,7 @@ dotenv.config({ path: path.resolve("./.env") });
 
 const router = express.Router();
 
-router.post("/send-email", async (req, res) => {
+router.post("/api/send-email", async (req, res) => {
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
