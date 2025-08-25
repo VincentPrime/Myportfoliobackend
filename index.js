@@ -13,8 +13,15 @@ dotenv.config({ path: path.resolve("./.env") });
 
 const app = express();
 const PORT = 4000;
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://myportfolio-ashy-theta.vercel.app"
+];
 
-app.use(cors({origin: "http://localhost:3000", credentials: true,methods: ["GET", "POST"],
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET", "POST"]
 }));
 app.use(bodyParser.json());
 
