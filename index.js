@@ -1,8 +1,8 @@
+  import cors from "cors"
   import express from "express";
-  import cors from "cors";
-  import routes from "./routes.js";
   import path from "path";
   import dotenv from "dotenv";
+  import bodyParser from "body-parser";
 
 import emailroutes from "./routes/emailingroutes.js";
 
@@ -14,7 +14,11 @@ dotenv.config({ path: path.resolve("./.env") });
 const app = express();
 const PORT = 4000;
 
+app.use(cors({origin: "http://localhost:3000", credentials: true}));
+app.use(bodyParser.json());
+
 app.use(express.json());
+
 
 app.use("/api",emailroutes)
 
