@@ -3,7 +3,6 @@
   import path from "path";
   import dotenv from "dotenv";
   import bodyParser from "body-parser";
-
 import emailroutes from "./routes/emailingroutes.js";
 
 
