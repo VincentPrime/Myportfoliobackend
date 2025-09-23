@@ -14,14 +14,24 @@ const app = express();
 const PORT = 4000;
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://vincentfillar.vercel.app/"
+  "https://vincentfillar.vercel.app"
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    } else {
+      return callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
-  methods: ["GET", "POST"]
+  methods: ["GET", "POST", "OPTIONS"], // include OPTIONS
 }));
+
+app.options("*", cors());
 app.use(bodyParser.json());
 
 app.use(express.json());
