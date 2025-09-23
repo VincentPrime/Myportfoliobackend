@@ -31,7 +31,6 @@ app.use(cors({
   methods: ["GET", "POST", "OPTIONS"], // include OPTIONS
 }));
 
-app.options("*", cors());
 app.use(bodyParser.json());
 
 app.use(express.json());
