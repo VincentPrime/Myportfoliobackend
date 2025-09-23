@@ -14,7 +14,7 @@ const app = express();
 const PORT = 4000;
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://vincentfillar.vercel.app/"
+  "https://vincentfillar.vercel.app"
 ];
 
 app.use(cors({
